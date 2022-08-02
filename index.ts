@@ -1,45 +1,45 @@
 interface IFighter {
-    getWins(): number,
-    getLosses(): number,
-    getName(): string,
-    getDamage(): number,
-    getHealth(): number,
-    getStrenght(): number,
-    getAgility(): number,
-    addLoss(): void,
-    addWin(): void,
-    logCombatHistory(): void,
-    heal(value: number): void,
-    dealDamage(dam: number): void,
-    hit(hero: object): void,
-    hitProbability(): boolean,
-    attack(hero: object): void,
+    getWins         ()             : number,
+    getLosses       ()             : number,
+    getName         ()             : string,
+    getDamage       ()             : number,
+    getHealth       ()             : number,
+    getStrenght     ()             : number,
+    getAgility      ()             : number,
+    addLoss         ()             : void,
+    addWin          ()             : void,
+    logCombatHistory()             : void,
+    heal            (value: number): void,
+    dealDamage      (dam: number)  : void,
+    hit             (hero: object) : void,
+    hitProbability  ()             : boolean,
+    attack          (hero: object) : void,
 }
 interface IPropsObj {
-    name: string;
-    damage: number;
-    hp: number;
+    name    : string;
+    damage  : number;
+    hp      : number;
     strenght: number;
-    agility: number;
+    agility : number;
 }
 
 class Fighter implements IFighter {
-    name: string;
-    damage: number;
-    hp: number;
+    name    : string;
+    damage  : number;
+    hp      : number;
     strenght: number;
-    agility: number;
-    wins: number;
-    losses: number;
+    agility : number;
+    wins    : number;
+    losses  : number;
 
     constructor(obj: IPropsObj) {
-        this.name = obj.name;
-        this.damage = obj.damage;
-        this.hp = obj.hp;
+        this.name     = obj.name;
+        this.damage   = obj.damage;
+        this.hp       = obj.hp;
         this.strenght = obj.strenght;
-        this.agility = obj.agility;
-        this.wins = 0;
-        this.losses = 0;
+        this.agility  = obj.agility;
+        this.wins     = 0;
+        this.losses   = 0;
     }
 
     getWins() {
@@ -93,24 +93,24 @@ class Fighter implements IFighter {
 }
 
 const myFighter: IFighter = new Fighter({
-    name: 'Maximus',
-    damage: 25,
-    hp: 100,
+    name    : 'Maximus',
+    damage  : 25,
+    hp      : 100,
     strenght: 30,
-    agility: 25,
+    agility : 25,
 });
 
 const opponentFighter: IFighter = new Fighter({
-    name: 'Commodus',
-    damage: 25,
-    hp: 90,
+    name    : 'Commodus',
+    damage  : 25,
+    hp      : 90,
     strenght: 25,
-    agility: 20,
+    agility : 20,
 });
 
-const condition: boolean = myFighter.getHealth() > 0 && opponentFighter.getHealth() > 0;
-const isDeadHero: boolean = myFighter.getHealth() === 0;
-const isDeadOpponent: boolean = opponentFighter.getHealth() === 0;
+const condition: boolean      = myFighter.getHealth() > 0 && opponentFighter.getHealth() > 0;
+const isDeadHero: boolean     = myFighter.getHealth() ==       = 0;
+const isDeadOpponent: boolean = opponentFighter.getHealth() == = 0;
 
 function battle(myFighter: IFighter, opponentFighter: IFighter): void {
     if (isDeadHero || isDeadOpponent) {
